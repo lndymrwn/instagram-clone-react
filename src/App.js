@@ -37,20 +37,14 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
+
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         console.log(authUser);
         setUser(authUser);
-        if (authUser.displayName) {
-          
-
-        } else {
-          return authUser.updateProfile({
-            displayName: username,
-          });
-          }
         } else {
           setUser(null);
         }
@@ -75,6 +69,11 @@ function App() {
     event.preventDefault();
 
     auth.createUserWithEmailAndPassword(email, password)
+      .then((authUser) => {
+        return authUser.user.updateProfile({
+          displayName: username
+        })
+      })
       .catch((error) => (error.message));
   };
 
@@ -94,19 +93,19 @@ function App() {
               type="text"
               placeholder="username"
               value={username}
-              onChange={(e) => setUsername(e.targe.value)}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <Input
               placeholder="email"
               type="text"
               value={email}
-              onChange={(e) => setEmail(e.targe.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <Input
               placeholder="password"
               type="text"
               value={password}
-              onChange={(e) => setPassword(e.targe.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <Button onClick={signUp}>Sign Up</Button>
           </form>
@@ -121,7 +120,11 @@ function App() {
         />
       </div>
 
-      <Button type="submit" onClick={() => setOpen(true)}>Sign up</Button>
+      {user ? (
+        <Button type="submit" onClick={() => auth.signOut()}>Sign out</Button>
+      ) : (<Button type="submit" onClick={() => setOpen(true)}>Sign up</Button>)}
+
+      
 
       <h1>Lets Build a REACT app</h1>
 
