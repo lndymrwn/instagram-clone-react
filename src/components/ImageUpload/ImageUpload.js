@@ -39,8 +39,12 @@ function ImageUpload({username}) {
               caption: caption,
               imageUrl: url,
               username: username
-          })
-        })
+            })
+
+            setProgress(0);
+            setCaption("");
+            setImage(null);
+          });
       }
     )
   }
@@ -53,6 +57,8 @@ function ImageUpload({username}) {
       {/* caption input */}
       {/* file picker */}
       {/* post button */}
+
+      <progress value={progress} max="100"/>  
       <input type="text" placeholder="enter a caption" onChange={event=> setCaption(event.target.value)} value={caption}/>
       <input type="file" onChange={handleChange} />
       <Button className="imageupload__button" onClick={handleUpload}>Upload</Button> 
