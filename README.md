@@ -1,5 +1,5 @@
 ## Deployed link:
-Hosted on Firebase [https://instagram-clone-d1536.web.app/]
+* [Instagram Clone in React](https://instagram-clone-d1536.web.app/ "Instagram Clone") -  Hosted on Firebase. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
