@@ -57,7 +57,7 @@ function App() {
   }, [user, username]);
 
   useEffect(() => {
-    db.collection("posts").orderby('timestamp', 'desc').onSnapshot((snapshot) => {
+    db.collection("posts").orderBy('timestamp', 'desc').onSnapshot((snapshot) => {
       setPosts(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -86,10 +86,9 @@ function App() {
     
     setOpenSignIn(false);
   }
-
   return (
     <div className="app">
-      {user.displayName ? (
+      {user?.displayName ? (
         <ImageUpload username={user.displayName} />
       ) : (
           <h3>Sorry you need to login.</h3>
