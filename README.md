@@ -10,8 +10,6 @@ React project that uses Firebase services for real-time database storage and aut
 ## Table of Contents 
 [Installation](#installation)
 
-[Usage](#usage)
-
 [Resources](#resources)
 
 [Contributing](#contributing)
@@ -24,13 +22,6 @@ Download the source code, then  run "npm install".
 the run, npm run start
 Finally, (optional) if you want to use your own Firebase application go into /src/firebase.js and change the config object.
 
-
-## Usage
-In the top folder (with server.js) run "npm start". Alternately go to the deployed page https://bolsa-tober65.herokuapp.com/. 
-
-On the sign up page enter a username, email, and password, then login with your email and password. 
-You can then upload images, giving them a caption. 
-When you are logged in you are also able to comment on photos. 
 
 ## Resources
 A very special thank you to:
